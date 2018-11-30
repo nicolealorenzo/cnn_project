@@ -24,6 +24,6 @@ race_per_county <- data.frame(population_info %>%
                                     summarise_all(funs(median), na.rm=TRUE))
 print(race_per_county)
 race_per_county$County <- tolower(race_per_county$County)
-joined_data <- inner_join(race_per_county, joined_data_relevant, by = "County")
+joined_data <- inner_join(race_per_county, joined_data_relevant, by = c("County", "State"))
 print(joined_data)
 write.csv(joined_data, file = "data/per_county_information.csv")
