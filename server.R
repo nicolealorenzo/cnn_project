@@ -1,31 +1,3 @@
-# library(dplyr)
-# library(ggplot2)
-# library("shiny")
-# county_data <- read.csv("data/per_county_information.csv", stringsAsFactors = FALSE)
-# county_data <- data.frame(county_data)
-# states_unique <- unique(county_data$State)
-# 
-# my_server <- function(input, output) {
-#   dataset <- reactive({
-#     print(county_data)
-#     states_data <- filter(county_data, State == input$states)
-#     print(nrow(states_data))
-#     return(states_data)
-#   })
-# 
-#   output$scatterplot <- renderPlot({
-#     ggplot(dataset(), aes(x=Income, y=population_hospital_ratio)) + geom_point()
-#   })
-# 
-#   output$number_observations <- renderText({
-#     relevant_dataset <- dataset()
-#     return(paste("There are", nrow(relevant_dataset), "observations for the given state and time range"))
-#   })
-# }
-# 
-# shinyServer(my_server)
-
-
 library(shiny)
 library(dplyr)
 library(leaflet)
@@ -42,6 +14,32 @@ server <- function(input,output, session){
     states_data <- filter(county_data, State == input$states)
     print(nrow(states_data))
     return(states_data)
+  })
+  
+  output$distPlot <- renderPlot({
+    
+    ##get selected data from UI
+    hospi <- hospi %>%
+      filter(City == input$cities) %>%
+      group_by(Hospital.Ownership) %>%
+      summarise(Hosp = n())
+    # print(input$states)
+    # print(hospi)
+    # 
+    # ##get percent per ownership
+    # hospi <- hospi %>%
+    #   group_by(Hospital.Ownership) %>%
+    #   summarise(Hosp = n())
+    
+    print(hospi$Hosp)
+    
+    #graph
+    ggplot(hospi, aes(x = '', y = Hosp , fill = Hospital.Ownership)) +
+      geom_col(aes(fill = Hospital.Ownership), width = 1) + 
+      geom_text(aes(label = hospi$Hosp), position = position_stack(vjust = 0.5)) +
+      labs(fill= "Ownership Type", x=NULL, y="Distribution of Ownership") +
+      coord_polar("y")
+    
   })
   
   output$scatterplot <- renderPlot({
