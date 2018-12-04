@@ -1,8 +1,9 @@
-# Info 201 Fianl Project:
-# Exploring Hospital Data Throughout The US
-### Nicole Lorenzo
-### Christopher Sofian
-### Niev John Ignaco
+# Info 201 Fianl Project: Exploring Hospital Data Throughout The US
+### Nicole Lorenzo, Christopher Sofian, Niev John Ignaco
+
+## View the App
+[Exploring Hospital Data In The US - 2015](https://csofian.shinyapps.io/cnn_project/?fbclid=IwAR2PwNgpZtC5teADGJiZ285Yg9ifEeMLvJwn5IqpKTuvFRpcB0CvFt2r7Jc)
+
 
 
 ## Project Description
@@ -11,52 +12,35 @@
 Health is a key aspect that affects lifestyle, and lifestyle can also have an affcet as to how health resources are provided. Through the data, we wanted to locate where hospitals are in the country and show thier relation to the communities in the area. Find out how different areas thoughout the nation are being represented through health resources and vise versa. This is important to know to see what areas are being underrepresented in good health care, and what socioeconomic factors play a role. 
 
 ### Data: 
-We
+We obtained our hospital data from the [Hospital General Information](https://www.kaggle.com/cms/hospital-general-information) dataset provided on Kaggel. The data about the communities within the United States was collected from the [2015 US Cencus Demographic Data](https://www.kaggle.com/muonneutrino/us-census-demographic-data), also provided on Kaggel. As a team, we cleaned the data and merged both datasets to get the information we needed. 
 
 ### Audience:
+The main focus for this project is targeted for the government and healthcare professionals. By viewing the data, they are able to see what areas are being underrepresented and be able to focus attention on such communities. It's also important to see where different qualities of hospitals are centrified in order to understand the population around it and how it can be used cater to a grater community. 
+
+## Background On The Project
+
+### Topic
+Health is a topic that our team decided was significant to the community and ourselves. We wanted to dive into data that had a significant impact and meening that would actaully have an affect on people. We come from different backgrounds and healthcare is something that all areas should have the access of, but that isn't always the case. Our project is something that represents different backgrounds and how they are reflected in provided healthcare. 
+
+### Vison
+We wanted to create a Shiny app that allows the user to put themselves in different areas of the country and see what healthcare in that area is like. Where are the best and worst places to get health services? Why are there so many hospitals in a certain area, but none in another? The point is to find out what about a community makes it worth the resources or not. Each of us wanted to display the data in our own unique way, but all falll under the same goal.
 
 ## Visualizing our Findings:
 
 ### Figure 1: 
+The first figure visualizes the median income verses the population to hospital ratio. The data concludes that in most states, there are a greater amount of hospitals in middle class areas. Although, the population being served at these hospitals are individually a small amount. This may be becuase there are more hopsitals within a similar population area. 
 
 ### Figure 2:
+The second figure visualizes hospitals thoughout the US based on rating and income. The user is able to view the different types of hosptials based on thier national rating and where they are located. The markers on the map chnage color based on the areas average income. (Green = High, Orange = Medium, Red = Low). Through the data, most of the hospitals are located in areas of medium income (>$35,000, <=$100,000). The data also shows that a lot of staes (mainly in the midwest) are lacking quality healthcare, and this maybe something to consider. 
 
 ### Figure 3: 
-1) What is the dataset you'll be working with?  Please include background on who collected the data, where you accessed it, and any additional information we should know about how this data came to be.
--Hospital General Information (kaggle)
-This file contains general information about all hospitals that have been registered with Medicare, including their addresses, type of hospital, and ownership structure. It also contains information about the quality of each hospital, in the form of an overall rating (1-5, where 5 is the best possible rating & 1 is the worst), and whether the hospital scored above, same as, or below the national average for a variety of measures.
+The final figure explores the different type of hospitals in selected cities. This data is important becuase it showcases what type of healthcare is provided. Although there may be a good number of hospitals in the area, doesn't mean that they all provide the services needed to support everyone in the community.    
 
-	-US Census Demographic Data(kaggle)
-Taken from the DP03 and DP05 tables of American Community Survey 5-year estimate, this dataset expands on my earlier New York City Census Data dataset. It includes data from the entire country instead of just New York City. The expanded data will allow for much more interesting analyses and will also be much more useful at supporting other data sets.
 
-2) Who is your target audience?  Depending on the domain of your data, there may be a variety of audiences interested in using the dataset.  You should home in on one of these audiences.
--Healthcare professionals, patients, and government. Where patients and government funds should be targeted towards. 
+## Conclusions
 
-3) What does your audience want to learn from your data?  Please list out at least 3 specific questions that your project will answer for your audience.
-Our goals are to :
--Highlight under represented cities in the US in terms of population to hospital/population ratio
--Analyze the locations of hospitals and their relation to the populations race, gender, or economic class.
--Find out which locations have the most hospital to population ratio
-Technical Description
+### Areas of Struggle
+The main issue with collaborating was the technichal problems. Trying to merge everyone's visualizations into one platform was the main problem.
 
-4) What will be the format of your final product (Shiny app, HTML page or slideshow compiled with KnitR, etc.)?
--Shiny App
-5) How will you be reading in your data (i.e., are you using an API, or is it a static .csv/.json file)?
--Static .csv file that we get from kaggle. 
--https://www.kaggle.com/cms/hospital-general-information
-6) What types of data-wrangling (reshaping, reformatting, etc.) will you need to do to your data?
--Reshaping - we would see how many hospitals are there in the city, we would also join two tables. Population by cities tables and the hospital in the cities table. 
--We would also have to perform a groupby operations to find the total number of hospitals in a city
-
-7) What (major/new) libraries will be using in this project (no need to list common libraries that are used in many projects such as dplyr)
--Dplyr
-	-Ggplot2
-	-Keras
-	-Sklearn
-	-Pandas
-8) What questions, if any, will you be answering with statistical analysis/machine learning?
--Which cities in the US are under represented in health resources such as hospitals? 
-9) What major challenges do you anticipate? 
-	-Data cleanups is going to be hard because there might be a data row where	
-	there is no address, there is a typo, or a column with missing data. 
-	-Find relationship that is statistically significant.
+## Areas of Success
+All of our visualizations capture the purpose of the data in a unique way. Each visualization benefits from the others in a way that helps the user understand the data in further detail. Our findings conclude that mainly middle class areas have better quality hospitals and also shows what types of hospitals are being provided. 
