@@ -42,5 +42,5 @@ The final figure explores the different type of hospitals in selected cities. Th
 ### Areas of Struggle
 The main issue with collaborating was the technichal problems. Trying to merge everyone's visualizations into one platform was the main problem.
 
-## Areas of Success
+### Areas of Success
 All of our visualizations capture the purpose of the data in a unique way. Each visualization benefits from the others in a way that helps the user understand the data in further detail. Our findings conclude that mainly middle class areas have better quality hospitals and also shows what types of hospitals are being provided. 
