@@ -9,7 +9,7 @@ ui <- fluidPage(
     sidebarPanel(
       selectInput(
         "states", 
-        "states of sightings",
+        "states",
         state_name,
         selected = "Alabama"
       )

@@ -14,7 +14,7 @@ my_server <- function(input, output) {
   })
   
   output$scatterplot <- renderPlot({
-    ggplot(dataset(), aes(x=Income, y=population_hospital_ratio)) + geom_point() + geom_abline(method="auto", se=TRUE, fullrange=FALSE, level=0.95)
+    ggplot(dataset(), aes(x=Income, y=population_hospital_ratio)) + geom_point()
   })
   
   output$number_observations <- renderText({
