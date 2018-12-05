@@ -2,7 +2,7 @@
 ### Nicole Lorenzo, Christopher Sofian, Niev John Ignaco
 
 ## View the App
-[Exploring Hospital Data In The US - 2015](https://csofian.shinyapps.io/cnn_project/?fbclid=IwAR2PwNgpZtC5teADGJiZ285Yg9ifEeMLvJwn5IqpKTuvFRpcB0CvFt2r7Jc)
+[Exploring Hospital Data In The US - 2015](https://nicolealorenzo.shinyapps.io/hosp_project/)
 
 
 
