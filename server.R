@@ -33,11 +33,6 @@ server <- function(input,output, session){
                  "","", sep="\n"))
   })
   
-  ## Print title for figure 2 text
-  output$diagram_title <- renderText({
-    return("Hospitals in The US Based on Ratings and Area Income")
-  })
-  
   ## Print map firgure 2
   output$mymap <- renderLeaflet({
     
