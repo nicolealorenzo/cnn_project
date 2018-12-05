@@ -4,6 +4,8 @@ library("dplyr")
 library("ggplot2")
 library("rsconnect")
 library("leaflet")
+
+## Get state data
 state <- data("state")
 print(state.name)
 state_name <- state.name
@@ -53,10 +55,10 @@ ui <- fluidPage(
     mainPanel(
       plotOutput("scatterplot"),
       verbatimTextOutput("description_1"),
-      textOutput("diagram_title"),
+      ("Hospitals in The US Based on Ratings and Area Income"),
       leafletOutput("mymap"),
       verbatimTextOutput("description"),
-      plotOutput("distPlot"),
+      ("Types of Hospitals Within US Cities"),
       textOutput("text")
     )
   )  
