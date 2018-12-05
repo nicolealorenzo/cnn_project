@@ -1,4 +1,4 @@
-# Info 201 Fianl Project: Exploring Hospital Data In The US
+# Info 201 Final Project: Exploring Hospital Data In The US
 ### Nicole Lorenzo, Christopher Sofian, Niev John Ignaco
 
 ## View the App
