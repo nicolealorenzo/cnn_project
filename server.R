@@ -22,21 +22,13 @@ server <- function(input,output, session){
     return(states_data)
   })
   
-   ## Print figure 1
+  ## Print figure 1
   output$scatterplot <- renderPlot({
-    ggplot(dataset(), aes(x=Income, y=population_hospital_ratio)) + geom_point() + ggtitle("Median Income vs Population to Hospital Ratio")
+    ggplot(dataset(), aes(x=Income, y=population_hospital_ratio)) + geom_point()
   })
-  
-   ## Description for figure 1
-  output$description_1 <- renderText({
-    return(paste("This scatterplot shows that generally for most states, counties with the best population to hospital ratio tends to be a county with income between $40,000 and $60,000",
-                 "","", sep="\n"))
-  })
-  
+ 
   ## Print map firgure 2
   output$mymap <- renderLeaflet({
-    
-    ## Change marker color depending on income
     getColor <- function(hospi) {
       sapply(hospi$Income, function(Income) {
         if(is.null(Income) ) {
@@ -49,6 +41,7 @@ server <- function(input,output, session){
           "green"  
         } })
     }
+    
     ## markers for figure 2
     icons <- awesomeIcons(
       icon = 'ios-close',
@@ -56,6 +49,7 @@ server <- function(input,output, session){
       #library = 'ion',
       markerColor = getColor(hospi)
     )
+    
     ## Filter data for figure 2
     hosp_filter <- hospi %>% 
       filter(Hospital.overall.rating == input$ratings )
@@ -66,17 +60,12 @@ server <- function(input,output, session){
       addAwesomeMarkers(lng = ~longitude,
                         lat = ~latitude,
                         icon=icons, 
-                        popup = paste("Name:", hosp_filter$Hospital.Name, "<br>",    ## Create hover effect
+                        #markerColor: 'red'
+                        #label=~hospital$Income,
+                        popup = paste("Name:", hosp_filter$Hospital.Name, "<br>",
                                       "County:", hosp_filter$County.Name.x
                         ))
     m
-  })
-  ## Print description for figure 2 text
-  output$description <- renderText({
-    return(paste("This map displays hospitals thougout the US based on a selected US National rating. the markers represent the givin areas income.", 
-                 "Green represents high income (>$100,000)",
-                 "Orange represents midle class income (>$35,000, < $100,000)",
-                 "Red represents low income (<= $35,000)", sep= "\n"))
   })
   
   ## Create figure 3
@@ -87,7 +76,7 @@ server <- function(input,output, session){
       group_by(Hospital.Ownership) %>%
       summarise(Hosp = n())
     
-    ## Graph Figure 3
+    # Graph Figure 3
     ggplot(hospi, aes(x = '', y = Hosp , fill = Hospital.Ownership)) +
       geom_col(aes(fill = Hospital.Ownership), width = 1) + 
       geom_text(aes(label = hospi$Hosp), position = position_stack(vjust = 0.5)) +
@@ -96,4 +85,6 @@ server <- function(input,output, session){
     
   })
 }
+
+
 shinyServer(server)
