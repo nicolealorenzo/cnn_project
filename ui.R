@@ -22,7 +22,7 @@ city_name <- unique(hospi$City)
 
 ## Shiny UI
 ui <- fluidPage(
-  titlePanel("Income vs population hospital ratio"),
+  titlePanel("Exploring Hospital Data Thoughout the US (2015)"),
   
   ## Sidebar
   sidebarLayout(
@@ -37,7 +37,7 @@ ui <- fluidPage(
       ),
       
       ## Button widget for figure 2
-      radioButtons("ratings", label = h3("National Rating"), 
+      radioButtons("ratings", label = h3("Figure 2: National Rating"), 
                    choices = list("5", "4", "3", "2", "1"),
                    selected = "5"),
       hr(),
@@ -53,13 +53,14 @@ ui <- fluidPage(
     ),
     ## Display
     mainPanel(
-      plotOutput("scatterplot"),
-      verbatimTextOutput("description_1"),
-      ("Hospitals in The US Based on Ratings and Area Income"),
-      leafletOutput("mymap"),
-      verbatimTextOutput("description"),
-      ("Types of Hospitals Within US Cities"),
-      textOutput("text")
+      tabsetPanel(
+        tabPanel("About", includeMarkdown("about.Rmd")),
+        tabPanel("1: Income to Population Ration", includeMarkdown("title1.Rmd"), plotOutput("scatterplot"), includeMarkdown("citation1.Rmd")),
+        tabPanel("2: Rating to Area Income", includeMarkdown("title_fig2.Rmd"), leafletOutput("mymap"), includeMarkdown("desc2.Rmd")),
+        tabPanel("3: Cities and Hospital Type", includeMarkdown("title3.Rmd"), plotOutput("distPlot"))
+      )
+     
+      
     )
   )  
 )
